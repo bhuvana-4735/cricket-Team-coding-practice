@@ -21,7 +21,7 @@ const InitializeAndServer = async () => {
   }
 }
 InitializeAndServer();
-constt convertDbToResObj=(dbObject)={
+const convertDbToResObj=(dbObject)=>{
      return{
       playerId:dbObject.player_id,
       playerName:dbObject.player_name,
@@ -84,7 +84,7 @@ app.put('/players/:playerId/', async (request, response) => {
     WHERE
       player_id = ${player_id};`
   await db.run(updatePlayerQuery)
-  response.send("Player Details Updated'")
+  response.send("Player Details Update")
 })
 
 //delete
