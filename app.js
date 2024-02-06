@@ -71,7 +71,7 @@ app.get('/players/:playerId/', async (request, response) => {
 //update
 
 app.put('/players/:playerId/', async (request, response) => {
-  const {player_id} = request.params
+  const {playerId} = request.params
   const updateplayerDetails = request.body
   const {playerName, jerseyNumber, role} = updateplayerDetails
   const updatePlayerQuery = `
@@ -82,7 +82,7 @@ app.put('/players/:playerId/', async (request, response) => {
       jersey_number=${jerseyNumber},
     role= ${role},
     WHERE
-      player_id = ${player_id};`
+      player_id = ${playerId};`
   await db.run(updatePlayerQuery)
   response.send("Player Details Update")
 })
