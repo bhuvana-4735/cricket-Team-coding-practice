@@ -47,9 +47,9 @@ app.post('/players/', async (request, response) => {
   const {playerName, jerseyNumber, role} = playerDetails
   const addPlayerQuery = `
 insert into cricket_team(player_name,jersey_number,role)values(
-  ${playerName},
+  '${playerName}',
   ${jerseyNumber},
-  ${role}
+  '${role}'
 );`
   const player = await db.run(addPlayerQuery)
   response.send('Player Added to Team')
